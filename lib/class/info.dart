@@ -4,7 +4,7 @@ import 'package:company_demo/class/header.dart';
 import 'package:company_demo/class/banner.dart';
 import 'package:company_demo/class/class_tab.dart';
 
-class Info extends StatelessWidget{
+class Info extends StatelessWidget {
   const Info({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -14,8 +14,7 @@ class Info extends StatelessWidget{
       body: SingleChildScrollView(
         child: Container(
           height: screen.height,
-          child: (
-              Column(
+          child: (Column(
             children: [
               Header(
                 title: 'K线快速入门',
@@ -42,11 +41,13 @@ class Info extends StatelessWidget{
                         ])),
                     child: ClassBanner()),
               ),
-              Container(
-                child: Image.asset(('assets/k_thread.png'))
-              ),
+              Container(child: Image.asset(('assets/k_thread.png'))),
+              // ignore: todo
               /// TODO： TabBar切换出错，具体代码看下面这个组件对应文件
-              ClassTabBar(),
+              Container(
+                height: screen.height - screen.calc(367),
+                child: ClassTabBar(),
+              ),
             ],
           )),
         ),

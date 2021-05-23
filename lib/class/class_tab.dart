@@ -1,3 +1,4 @@
+import 'package:company_demo/class/class_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:company_demo/util/screen_util.dart';
 
@@ -8,51 +9,93 @@ class ClassTabBar extends StatefulWidget {
   _ClassTabBarState createState() => _ClassTabBarState();
 }
 
-class _ClassTabBarState extends State<ClassTabBar> with SingleTickerProviderStateMixin {
+class _ClassTabBarState extends State<ClassTabBar>
+    with SingleTickerProviderStateMixin {
   TabController _tabController;
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(vsync: this,length: 6);
+    _tabController = TabController(vsync: this, length: 2);
   }
 
   @override
   Widget build(BuildContext context) {
     final screen = Screen(context);
-    return Scaffold(
-      appBar: AppBar(
-        bottom: TabBar(
-          tabs: [
-            Tab(text: "热门"),
-            Tab(text: "推荐"),
-            Tab(text: "关注"),
-            Tab(text: "收藏"),
-            Tab(text: "新增"),
-            Tab(text: "点赞"),
-          ],
-          controller: _tabController,
+    // return Scaffold(
+    //   appBar: PreferredSize(
+    //     preferredSize: Size.fromHeight(screen.calc(20)),
+    //     child: AppBar(
+    //       // 不显示返回
+    //       automaticallyImplyLeading: false,
+    //       // 隐藏标题
+    //       flexibleSpace: SafeArea(
+    //         top: false,
+    //         // bottom:true,
+    //         child: getTabBar(),
+    //       ),
+    //     ),
+    //   ),
+    //   body: getTabBarPages(),
+    // );
+    return Column(
+      children: [
+        Container(
+          child: getTabBar(),
         ),
-      ),
-      body: TabBarView(
+        getTabBarPages()
+      ],
+    );
+  }
+
+  Widget getTabBar() {
+    return TabBar(
+      tabs: [
+        Tab(
+          child: Text(
+            '课程介绍',
+            style: TextStyle(color: Colors.black),
+          ),
+        ),
+        Tab(
+          child: Text(
+            '课程大纲',
+            style: TextStyle(color: Colors.black),
+          ),
+        ),
+      ],
+      controller: _tabController,
+    );
+  }
+
+  Widget getTabBarPages() {
+    return Expanded(
+      flex: 1,
+      child: TabBarView(
         children: <Widget>[
-          Center(
-              child: Text("这是热门的内容")
+          Container(
+            child: ClassDetail(),
           ),
-          Center(
-              child: Text("这是推荐的内容")
-          ),
-          Center(
-              child: Text("这是关注的内容")
-          ),
-          Center(
-              child: Text("这是收藏的内容")
-          ),
-          Center(
-              child: Text("这是新增的内容")
-          ),
-          Center(
-              child: Text("这是点赞的内容")
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                ListTile(title: Text("TITLE")),
+                ListTile(title: Text("TITLE")),
+                ListTile(title: Text("TITLE")),
+                ListTile(title: Text("TITLE")),
+                ListTile(title: Text("TITLE")),
+                ListTile(title: Text("TITLE")),
+                ListTile(title: Text("TITLE")),
+                ListTile(title: Text("TITLE")),
+                ListTile(title: Text("TITLE")),
+                ListTile(title: Text("TITLE")),
+                ListTile(title: Text("TITLE")),
+                ListTile(title: Text("TITLE")),
+                ListTile(title: Text("TITLE")),
+                ListTile(title: Text("TITLE")),
+                ListTile(title: Text("TITLE")),
+              ],
+            ),
           )
         ],
         controller: _tabController,
