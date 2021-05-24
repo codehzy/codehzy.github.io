@@ -69,12 +69,31 @@ class _ClassTabBarState extends State<ClassTabBar>
   }
 
   Widget getTabBarPages() {
+    final screen = Screen(context);
     return Expanded(
       flex: 1,
       child: TabBarView(
         children: <Widget>[
           Container(
-            child: ClassDetail(),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  ClassDetail(),
+                  Container(
+                    margin: EdgeInsets.only(top: screen.calc(10)),
+                    width: screen.width,
+                    height: screen.calc(5),
+                    decoration: new BoxDecoration(color: Color(0xffF2F4F7)),
+                  ),
+                  Image.asset('assets/class_list.png'),
+                  Container(
+                    width: screen.width,
+                    height: screen.calc(5),
+                    decoration: new BoxDecoration(color: Color(0xffF2F4F7)),
+                  ),
+                ],
+              ),
+            ),
           ),
           SingleChildScrollView(
             child: Column(
