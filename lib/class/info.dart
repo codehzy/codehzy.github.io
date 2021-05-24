@@ -44,13 +44,7 @@ class Info extends StatelessWidget {
                     child: ClassBanner()),
               ),
               Container(child: Image.asset(('assets/k_thread.png'))),
-              // ignore: todo
-              /// TODO： TabBar切换出错，具体代码看下面这个组件对应文件
               Column(
-                // height: screen.height - screen.calc(367),
-                // children[
-                //   ClassTabBar(),
-                // ]
                 children: [
                   Container(
                       height:
