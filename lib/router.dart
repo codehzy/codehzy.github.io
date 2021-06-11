@@ -1,4 +1,5 @@
 import 'package:company_demo/Future/socket.dart';
+import 'package:company_demo/class/load.dart';
 import 'package:company_demo/home.dart';
 import 'package:company_demo/class/info.dart';
 import 'package:company_demo/Future/future.dart';
@@ -18,4 +19,5 @@ final routes = {
   '/Data': (BuildContext context) => Data(),
   '/CouldData': (BuildContext context) => CouldData(),
   '/Test': (BuildContext context) => Test(),
+  '/load': (BuildContext context) => Load(),
 };

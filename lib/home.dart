@@ -55,6 +55,13 @@ class Home extends StatelessWidget {
                 Navigator.pushNamed(context, '/Test');
               },
             ),
+            FlatButton(
+              color: Colors.green,
+              child: Text('测试加载'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/load');
+              },
+            ),
           ],
         ),
       ),
